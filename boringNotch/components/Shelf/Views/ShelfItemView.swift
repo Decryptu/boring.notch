@@ -396,7 +396,7 @@ private struct DraggableClickHandler<Content: View>: NSViewRepresentable {
             draggedURLs.removeAll()
 
             // Auto-remove items from shelf if enabled and drag succeeded
-            if Defaults[.autoRemoveShelfItems] && operation != .none {
+            if Defaults[.autoRemoveShelfItems] && !operation.isEmpty {
                 for item in draggedItems {
                     ShelfStateViewModel.shared.remove(item)
                 }
